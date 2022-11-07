@@ -26,4 +26,64 @@
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+#jump-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 144px;
+  height: 144px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+#jump-hero-img {
+  position: absolute;
+  top: -144px;
+  left: -144px;
+  width: 864px;
+  height: 576px;
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+#jump-circle-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  border: 2px solid rgb(0, 119, 255);
+  border-radius: 50%;
+}
+
+#hit-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 144px;
+  height: 144px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+#hit-hero-img {
+  position: absolute;
+  top: -452px;
+  left: -442px;
+  width: 864px;
+  height: 576px;
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+#hit-circle-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  border: 2px solid rgb(0, 119, 255);
+  border-radius: 50%;
 }/*# sourceMappingURL=main.css.map */

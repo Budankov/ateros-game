@@ -1,28 +1,86 @@
 #canvas {
-    background-color: white;
+  background-color: white;
 }
 
 #img-block {
-    width: 288px;
-    height: 288px;
-    overflow: hidden;
-    position: relative;
-    left: 0px;
+  width: 288px;
+  height: 288px;
+  overflow: hidden;
+  position: relative;
+  left: 0px;
 }
 
 #hero-img {
-    width: 1728px;
-    height: 1152px;
-    position: relative;
-    top: 0px;
-    left: -288px;
-    transform: scale(-1, 1);
+  width: 1728px;
+  height: 1152px;
+  position: relative;
+  top: 0px;
+  left: -288px;
+  transform: scale(-1, 1);
 }
 
 #fsBtn {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#jump-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 144px;
+  height: 144px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+#jump-hero-img {
+  position: absolute;
+  top: -144px;
+  left: -144px;
+  width: 864px;
+  height: 576px;
+  transform: scale(-1, 1);
+}
+
+#jump-circle-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  border: 2px solid rgb(0, 119, 255);
+  border-radius: 50%;
+}
+
+#hit-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 144px;
+  height: 144px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+#hit-hero-img {
+  position: absolute;
+  top: -452px;
+  left: -442px;
+  width: 864px;
+  height: 576px;
+  transform: scale(-1, 1);
+}
+
+#hit-circle-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  border: 2px solid rgb(0, 119, 255);
+  border-radius: 50%;
 }
