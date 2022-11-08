@@ -177,17 +177,19 @@ window.onmouseup = onTouchEnd;
 window.ontouchend = onTouchEnd;
 
 // Рух персонажа на клавіатурі
-document.addEventListener('keydown', function (e) {
-  if (e.key == 'ArrowLeft') {
-    leftHandler();
-  } else if (e.key == 'ArrowRight') {
-    rightHandler();
-  } else if (e.key == 'ArrowUp' || e.key == ' ') {
-    jumpHandler();
-  } else {
-    standHandler();
-  }
-});
+const listeningToPressingWalk = () => {
+  document.addEventListener('keydown', function (e) {
+    if (e.key == 'ArrowLeft') {
+      leftHandler();
+    } else if (e.key == 'ArrowRight') {
+      rightHandler();
+    } else if (e.key == 'ArrowUp' || e.key == ' ') {
+      jumpHandler();
+    } else {
+      standHandler();
+    }
+  });
+};
 
 const lifeCycle = () => {
   timer = setInterval(() => {
@@ -201,25 +203,38 @@ const lifeCycle = () => {
   }, 150);
 };
 
-const addTiles = index => {
+const createTiles = (x, y = 1) => {
   let tile = document.createElement('img');
-  let tileBlack = document.createElement('img');
   tile.src = './images/assets/1 Tiles/Tile_02.png';
   tile.style.position = 'absolute';
-  tile.style.left = `${index * 32}px`;
-  tile.style.bottom = '32px';
+  tile.style.left = `${x * 32}px`;
+  tile.style.bottom = `${y * 32}px`;
+  canvas.appendChild(tile);
+};
+
+const createTilesPlatform = (startX, startY, length) => {
+  for (let index = 0; index < length; index++) {
+    createTiles(startX + index, startY);
+  }
+};
+
+const addTiles = index => {
+  createTiles(index);
+  let tileBlack = document.createElement('img');
   tileBlack.src = './images/assets/1 Tiles/Tile_04.png';
   tileBlack.style.position = 'absolute';
   tileBlack.style.left = `${index * 32}px`;
   tileBlack.style.bottom = '0px';
-  canvas.appendChild(tile);
   canvas.appendChild(tileBlack);
 };
 
 const start = () => {
   lifeCycle();
+  listeningToPressingWalk();
   for (let index = 0; index < window.screen.width / 32; index++) {
     addTiles(index);
   }
+  createTilesPlatform(10, 10, 10);
+  createTilesPlatform(15, 5, 10);
 };
 start();
