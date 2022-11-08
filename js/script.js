@@ -48,8 +48,8 @@ const rightHandler = () => {
   if (rightPosition > 5) {
     rightPosition = 0;
   }
-  heroImg.style.left = `-${rightPosition * 288}px`;
-  heroImg.style.top = '-576px';
+  heroImg.style.left = `-${rightPosition * 96}px`;
+  heroImg.style.top = '-192px';
   imgBlock.style.left = `${imgBlockPosition * 20}px`;
 };
 
@@ -60,8 +60,8 @@ const leftHandler = () => {
   if (rightPosition > 5) {
     rightPosition = 0;
   }
-  heroImg.style.left = `-${rightPosition * 288}px`;
-  heroImg.style.top = '-576px';
+  heroImg.style.left = `-${rightPosition * 96}px`;
+  heroImg.style.top = '-192px';
   imgBlock.style.left = `${imgBlockPosition * 20}px`;
 };
 
@@ -86,7 +86,7 @@ const standHandler = () => {
   }
 
   rightPosition += 1;
-  heroImg.style.left = `-${rightPosition * 288}px`;
+  heroImg.style.left = `-${rightPosition * 96}px`;
   heroImg.style.top = '0px';
 };
 
@@ -113,8 +113,8 @@ const hitHandler = () => {
   }
 
   rightPosition += 1;
-  heroImg.style.left = `-${rightPosition * 288}px`;
-  heroImg.style.top = '-864px';
+  heroImg.style.left = `-${rightPosition * 96}px`;
+  heroImg.style.top = '-288px';
 };
 
 const jumpHandler = () => {
@@ -140,8 +140,8 @@ const jumpHandler = () => {
   }
 
   rightPosition += 1;
-  heroImg.style.left = `-${rightPosition * 288}px`;
-  heroImg.style.top = '-288px';
+  heroImg.style.left = `-${rightPosition * 96}px`;
+  heroImg.style.top = '-96px';
 };
 
 // Оброблювач подій
@@ -176,6 +176,19 @@ window.ontouchstart = onTouchStart;
 window.onmouseup = onTouchEnd;
 window.ontouchend = onTouchEnd;
 
+// Рух персонажа на клавіатурі
+document.addEventListener('keydown', function (e) {
+  if (e.key == 'ArrowLeft') {
+    leftHandler();
+  } else if (e.key == 'ArrowRight') {
+    rightHandler();
+  } else if (e.key == 'ArrowUp' || e.key == ' ') {
+    jumpHandler();
+  } else {
+    standHandler();
+  }
+});
+
 const lifeCycle = () => {
   timer = setInterval(() => {
     if (hit) {
@@ -188,7 +201,25 @@ const lifeCycle = () => {
   }, 150);
 };
 
+const addTiles = index => {
+  let tile = document.createElement('img');
+  let tileBlack = document.createElement('img');
+  tile.src = './images/assets/1 Tiles/Tile_02.png';
+  tile.style.position = 'absolute';
+  tile.style.left = `${index * 32}px`;
+  tile.style.bottom = '32px';
+  tileBlack.src = './images/assets/1 Tiles/Tile_04.png';
+  tileBlack.style.position = 'absolute';
+  tileBlack.style.left = `${index * 32}px`;
+  tileBlack.style.bottom = '0px';
+  canvas.appendChild(tile);
+  canvas.appendChild(tileBlack);
+};
+
 const start = () => {
   lifeCycle();
+  for (let index = 0; index < window.screen.width / 32; index++) {
+    addTiles(index);
+  }
 };
 start();

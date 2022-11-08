@@ -3,19 +3,20 @@
 }
 
 #img-block {
-  width: 288px;
-  height: 288px;
+  width: 96px;
+  height: 96px;
   overflow: hidden;
-  position: relative;
+  position: absolute;
   left: 0px;
+  bottom: 64px;
 }
 
 #hero-img {
-  width: 1728px;
-  height: 1152px;
+  width: 576px;
+  height: 384px;
   position: relative;
   top: 0px;
-  left: -288px;
+  left: -96px;
   transform: scale(-1, 1);
 }
 
@@ -83,4 +84,11 @@
   height: 140px;
   border: 2px solid rgb(0, 119, 255);
   border-radius: 50%;
+}
+
+#background-day {
+  position: absolute;
+  left: 0;
+  bottom: 64px;
+  width: 100%;
 }
