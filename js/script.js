@@ -15,6 +15,11 @@ let imgBlock = document.querySelector('#img-block');
 let jumpBlock = document.querySelector('#jump-block');
 let hitBlock = document.querySelector('#hit-block');
 
+console.log(canvas.style.left);
+
+// let heroX = Number.parseInt(imgBlock.style.left);
+// let heroY = Number.parseInt(imgBlock.style.bottom);
+
 jumpBlock.style.top = `${window.screen.height / 2 - 144 / 2}px`;
 hitBlock.style.top = `${window.screen.height / 2 - 144 / 2}px`;
 
